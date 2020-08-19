@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: exercise-app2-deployment
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+          app: exercise-app2            
+    template:
+        metadata:
+            labels:
+              app: exercise-app2
+        spec:
+          containers:
+          - name: exercise-app2
+            image: exercise-app2
+            imagePullPolicy: IfNotPresent
