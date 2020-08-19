@@ -16,6 +16,8 @@ spec:
           - name: exercise-app2
             image: docker.io/jintoppy/exercise-app-2:latest
             imagePullPolicy: IfNotPresent
+            ports:
+              - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
