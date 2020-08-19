@@ -14,5 +14,22 @@ spec:
         spec:
           containers:
           - name: exercise-app1
-            image: exercise-app1
+            image: docker.io/jintoppy/exercise-app-1:latest
             imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exercise-app1-srv
+  labels:
+    app: build-analytics
+    service: build-analytics
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 31008
+    name: http
+  selector:
+    app: exercise-app1
+  type: NodePort
